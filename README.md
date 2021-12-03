@@ -6,9 +6,12 @@
 Typescript, Express, Node.js, Postgres, Sequelize, Socket.io
 
 
-## Initialize:
+## SERVER Initialize:
 To run the program in an IDE ensure that typescript is installed globally with:
 >**npm install -g typescript**
+
+CD into ./server:
+> cd server
 
 Install dependencies:
 >**npm install**
