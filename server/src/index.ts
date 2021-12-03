@@ -1,12 +1,12 @@
 import express from "express";
+import masterRoutes from "./routes/routes.js";
+// const router = express.Router();
+const everyRoute: any = masterRoutes;
 const app = express();
 const port = 3030;
 
-app.get('/', (req: any, res: any) => {
-  res.sendStatus(200);
-});
 
-
+app.use('/', everyRoute);
 
 app.listen(port, () => {
   console.log(`Server listening to Port ${port}`);

@@ -1,0 +1,1 @@
+{"version":3,"file":"read.js","sourceRoot":"","sources":["../../../../src/routes/messages/read/read.ts"],"names":[],"mappings":";;AAAA,qCAAiC;AACjC,IAAI,oBAAoB,GAAG,IAAA,gBAAM,GAAE,CAAC;AAEpC,oBAAoB,CAAC,GAAG,CAAC,GAAG,EAAE,CAAC,GAAQ,EAAE,GAAQ,EAAE,EAAE;IACnD,GAAG,CAAC,IAAI,CAAC,kBAAkB,CAAC,CAAC;AAC/B,CAAC,CAAC,CAAC;AAEH,kBAAe,oBAAoB,CAAC"}
