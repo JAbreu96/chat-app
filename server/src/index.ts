@@ -1,10 +1,9 @@
 import express from "express";
 import masterRoutes from "./routes/routes.js";
-// const router = express.Router();
+
 const everyRoute: any = masterRoutes;
 const app = express();
 const port = 3030;
-
 
 app.use('/', everyRoute);
 
