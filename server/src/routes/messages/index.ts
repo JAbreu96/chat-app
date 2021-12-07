@@ -4,6 +4,6 @@ import postMessageRoute from './post/post';
 let messageRoutes = Router();
 
 messageRoutes.use('/post', postMessageRoute);
-messageRoutes.use('/get', retrieveMessageRoute);
+messageRoutes.use('/read', retrieveMessageRoute);
 
 export default messageRoutes;
