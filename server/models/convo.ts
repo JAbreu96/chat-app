@@ -12,7 +12,26 @@ module.exports = (sequelize, DataTypes) => {
   };
   Convo.init({
     latest_message: DataTypes.STRING,
-    participants: DataTypes.STRING
+    user1: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: {
+          tableName: 'users',
+          schema: 'schema'
+        },
+        key: 'id'
+      }
+    },
+    user2: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: {
+          tableName: 'users',
+          schema: 'schema'
+        },
+        key: 'id'
+      }
+    }
   }, {
     sequelize,
     modelName: 'Convo',

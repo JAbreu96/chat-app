@@ -11,8 +11,25 @@ module.exports = {
       latest_message: {
         type: Sequelize.STRING
       },
-      participants: {
-        type: Sequelize.STRING
+      user1: {
+        type: Sequelize.DataTypes.INTEGER,
+        references: {
+          model: {
+            tableName: 'users',
+            schema: 'schema'
+          },
+          key: 'id'
+        }
+      },
+      user2: {
+        type: Sequelize.DataTypes.INTEGER,
+        references: {
+          model: {
+            tableName: 'users',
+            schema: 'schema'
+          },
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
