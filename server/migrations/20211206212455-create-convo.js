@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Convos', {
+    await queryInterface.createTable('convos', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -16,7 +16,7 @@ module.exports = {
         references: {
           model: {
             tableName: 'users',
-            schema: 'schema'
+            schema: 'public'
           },
           key: 'id'
         }
@@ -26,7 +26,7 @@ module.exports = {
         references: {
           model: {
             tableName: 'users',
-            schema: 'schema'
+            schema: 'public'
           },
           key: 'id'
         }
@@ -42,6 +42,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Convos');
+    await queryInterface.dropTable('convos');
   }
 };
