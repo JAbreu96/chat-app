@@ -6,25 +6,29 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.DataTypes.INTEGER
       },
-      sender: {
-        type: Sequelize.STRING
+      sender_id: {
+        type: Sequelize.DataTypes.INTEGER
       },
       message: {
-        type: Sequelize.STRING
+        type: Sequelize.DataTypes.STRING
       },
-      readReceipt: {
-        type: Sequelize.STRING
+      other_user: {
+        type: Sequelize.DataTypes.INTEGER
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DataTypes.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DataTypes.DATE
+      },
+      convo_id: {
+        type: Sequelize.DataTypes.INTEGER
       }
+
     });
   },
   down: async (queryInterface, Sequelize) => {

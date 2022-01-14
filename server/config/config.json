@@ -1,9 +1,10 @@
 {
   "development": {
-    "username": "jabreu",
+    "username": "joelchristabreu",
     "password": "gird",
     "database": "chat",
     "host": "127.0.0.1",
+    "schema": "public",
     "dialect": "postgres"
   },
   "test": {
