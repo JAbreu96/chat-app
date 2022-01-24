@@ -1,6 +1,6 @@
 
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
+export default {
+  up: async (queryInterface: any, Sequelize: any) => {
     /**
      * Add seed commands here.
      *
@@ -20,22 +20,24 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
-        // {
-        //   first_name: "John",
-        //   last_name: "Doe",
-        //   email: "John_Doe@mail.com",
-        //   password: "123456789",
-        //   createdAt: new Date(),
-        //   updatedAt: new Date(),
-        // },
-        // {
-        //   first_name: "Janet",
-        //   last_name: "Lee",
-        //   email: "Jlee@mail.com",
-        //   password: "123456789",
-        //   createdAt: new Date(),
-        //   updatedAt: new Date(),
-        // }
+      {
+        first_name: "John",
+        last_name: "Doe",
+        email: "John_Doe@mail.com",
+        password: "123456789",
+        user_name: 'JonTron21',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        first_name: "Janet",
+        last_name: "Lee",
+        email: "Jlee@mail.com",
+        password: "123456789",
+        user_name: 'princess<3',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }
       ], {});
 
     } catch {
@@ -43,7 +45,7 @@ module.exports = {
     }
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface: any, Sequelize: any) => {
     /**
      * Add commands to revert seed here.
      *

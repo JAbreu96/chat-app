@@ -3,10 +3,11 @@
   "description": "Chat Application",
   "scripts": {
     "start": "nodemon --watch src -e ts,ejs  --exec npm run build",
-    "build": "tsc --project ./ && node ./dist/index.js"
+    "build": "tsc --project ./ && node ./dist/src/src/index.js"
   },
   "dependencies": {
     "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
     "path": "^0.12.7",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.12.0-alpha.1",

@@ -1,30 +1,20 @@
 import { Sequelize } from 'sequelize';
-import { Pool, Client } from 'pg';
+// import { Pool, Client } from 'pg';
 const connectionString: string = 'postgresql://jabreu:gird@localhost:5432/chat';
 
-// const pool: any = new Pool({
-//   connectionString: connectionString,
-// })
+const initDB: any = {
+  init: async () => {
+    return await new Sequelize('chat', 'joelchristabreu', 'gird', {
+      host: '127.0.0.1',
+      dialect: 'postgres'
+    })
+  }
+}
+// const sequelize: any = new Sequelize('chat', 'joelchristabreu', 'gird', {
+//   host: 'localhost',
+//   dialect: 'postgres',
+// });
 
-// const client: any = new Client({
-//   connectionString: connectionString,
-// })
+// const sequelize: any = new Sequelize(connectionString);
 
-
-const sequelize: any = new Sequelize('chat', 'jabreu', 'gird', {
-  host: 'localhost',
-  dialect: 'postgres',
-});
-
-// (async function () {
-//   try {
-//     // client.connect();
-//     // await sequelize.authenticate();
-//     console.log('db has connected');
-//     // sequelize.close();
-//   } catch {
-//     console.log(('Failed to connect to db'));
-//   }
-// })
-
-export default sequelize;
+export default initDB;
