@@ -2,46 +2,32 @@ import { Router } from 'express';
 import io from '../../../socket_controller/init';
 let authRoute = Router();
 import db from '../../../../models/index';
+import { any } from 'sequelize/dist/lib/operators';
 
 const authenticate = async (email: string, password: string) => {
   let queryStr = `SELECT * FROM users WHERE email = '${email}' AND password = '${password}'`;
-  try {
-    await db.sequelize.authenticate();
 
-    db.sequelize.query(queryStr).then((data: any) => { console.log(data) });
+  let data = await db.sequelize.query(queryStr);
 
-    await db.sequelize.close();
-  }
-  catch {
-    console.log('Not connected');
+  if (!data[0].length) {
     return false;
-  }
-  finally {
-    return true;
-  }
+  };
+
+  return true;
 };
 
 io.open().use(async (socket: any, next: any) => {
   if (await authenticate('jc_abreu', 'gird')) {
-    console.log('Access Granted');
+    return next();
   } else {
-    console.log('Access Denied');
+    return next(new Error('Authentication Error'));
   }
-  next();
 })
   .on('connection', (socket: any) => {
     console.log('user has connected');
-
-  });
-
-
-// authRoute.get('/', (req: any, res: any) => {
-//   // const { password, username, email } = req.body;
-
-//   authenticate();
-
-
-//   res.send("Auth");
-// });
+  })
+  .on('error', (socket: any) => {
+    console.log('user has not connected');
+  })
 
 export default authRoute;

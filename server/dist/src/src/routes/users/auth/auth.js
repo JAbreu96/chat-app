@@ -17,38 +17,27 @@ const init_1 = __importDefault(require("../../../socket_controller/init"));
 let authRoute = (0, express_1.Router)();
 const index_1 = __importDefault(require("../../../../models/index"));
 const authenticate = (email, password) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        // const sequelize: any = await initDB.init()
-        yield index_1.default.sequelize.authenticate();
-        let queryStr = `SELECT * FROM users WHERE email = '${email}' AND password = '${password}'`;
-        index_1.default.sequelize.query(queryStr).then((data) => { console.log(data); });
-        yield index_1.default.sequelize.close();
-    }
-    catch (_a) {
-        console.log('Not connected');
+    let queryStr = `SELECT * FROM users WHERE email = '${email}' AND password = '${password}'`;
+    let data = yield index_1.default.sequelize.query(queryStr);
+    if (!data[0].length) {
         return false;
     }
-    finally {
-        return true;
-    }
+    ;
+    return true;
 });
 init_1.default.open().use((socket, next) => __awaiter(void 0, void 0, void 0, function* () {
     if (yield authenticate('jc_abreu', 'gird')) {
+        return next();
     }
     else {
+        return next(new Error('Authentication Error'));
     }
-    next();
 }))
     .on('connection', (socket) => {
     console.log('user has connected');
-    // socket.on('authenticate', (data: any) => {
-    //   authenticate();
-    // });
+})
+    .on('error', (socket) => {
+    console.log('user has not connected');
 });
-// authRoute.get('/', (req: any, res: any) => {
-//   // const { password, username, email } = req.body;
-//   authenticate();
-//   res.send("Auth");
-// });
 exports.default = authRoute;
 //# sourceMappingURL=auth.js.map
